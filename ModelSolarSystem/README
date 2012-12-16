@@ -26,6 +26,11 @@ the law of gravitation to set the whole system in motion.
 StringFunctions:
 Set of functions that are useful for manipulating strings.
 
+Compilation:
+Compilations should work on any system with g++ installed.  A makefile is
+included.  To remove the compiled objects type "make clean" and to compile the
+project type "make all".
+
 USAGE:
 ./ModelSolarSystem datafile.txt number_of_days
 This will print the information for the system in the given file and then
