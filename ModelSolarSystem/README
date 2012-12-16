@@ -1,0 +1,33 @@
+William Hartmann (hartmannw@gmail.com)
+This is free and unencumbered software released into the public domain.
+See the UNLICENSE file for more information.
+
+This code is associated with a set of blog posts about modeling the solar system
+on williamhartmann.wordpress.com
+
+The text files contain postion information about a set of orbital bodies for a 
+particular date.  The date is mm/dd/yyyy.  Each entry in the file contains three
+lines.
+1) Object name and mass
+2) Ascension and declination information for the object at midnight on that day.
+3) Ascension and declination information for the object at 1:00am on that day.
+
+ModelSolarSystem.cc:
+This is the main file.  It reads in the data from the txt files and sets up the
+gravitational system.
+
+OrbitalBody:
+Class file that stores information about a given orbital object.
+
+GravitationalSystem:
+Class file that stores information for every object in the system.  Implements
+the law of gravitation to set the whole system in motion.
+
+StringFunctions:
+Set of functions that are useful for manipulating strings.
+
+USAGE:
+./ModelSolarSystem datafile.txt number_of_days
+This will print the information for the system in the given file and then
+simulate the system for the prescribed number of days.  Finally it will ouput
+the state of the gravitational system after simulation.
