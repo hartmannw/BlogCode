@@ -7,6 +7,10 @@
 
 #include<vector>
 
+// Matrix is a simple implementation of a two-dimensional data structure. It
+// defines the desired functionality of the class, but the actual implementation
+// may not be efficient. The implementation can be improved in the future if 
+// necessary. Data is stored and accessed in a row x column format.
 template <class T>
 class Matrix
 {
@@ -61,6 +65,9 @@ T Matrix<T>::operator() (unsigned int row, unsigned int col) const
   return matrix_[row][col];
 }
 
+// We return a reference so value can be set using notation like
+// Matrix<int> m(10, 10); 
+// m(2,4) = 8;
 template <class T>
 T& Matrix<T>::operator() (unsigned int row, unsigned int col)
 {

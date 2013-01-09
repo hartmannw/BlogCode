@@ -1,3 +1,16 @@
 William Hartmann (hartmannw@gmail.com)
 This is free and unencumbered software released into the public domain.
 See the UNLICENSE file for more information.
+
+This code is associated with a blog post on williamhartmann.wordpress.com about
+hiding and encapsulating implementations using object oriented programming.
+
+Matrix.h:
+Contains an inefficient implementation of a two-dimensional matrix. Instead of
+directly using the vector of vectors approach, it is encapsulated in this class.
+This makes the code much more compact, cleaner, and readable. If a more
+efficient implementation is needed, the code can be modified without affecting 
+any of the code that uses the class.
+
+test_matrix.cc
+Contains a few simple tests of the Matrix class functionality.

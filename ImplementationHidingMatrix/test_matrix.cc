@@ -5,6 +5,7 @@
 #include "Matrix.h"
 #include <iostream>
 
+// Prints a matrix where each row is given its own line.
 void PrintMatrix(const Matrix<int> &matrix)
 {
   for(unsigned int r = 0; r < matrix.NumRows(); ++r)
