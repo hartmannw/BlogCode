@@ -11,7 +11,7 @@ template <class T>
 class Matrix
 {
  private:
-  std::vector<std::vector<double> > matrix_;
+  std::vector<std::vector<T> > matrix_;
   unsigned int rows_;
   unsigned int cols_;
 
@@ -24,7 +24,7 @@ class Matrix
       Initialize(rows, cols, value); }
   
   void Initialize(unsigned int rows, unsigned int cols);
-  void Initialize(unsigned int rows, unsigned int cols);
+  void Initialize(unsigned int rows, unsigned int cols, T value);
 
   T operator() (unsigned int row, unsigned int col) const;
   T& operator() (unsigned int row, unsigned int col);
@@ -33,34 +33,38 @@ class Matrix
 
 };
 
-void Initialize(unsigned int rows, unsigned int cols)
+template <class T>
+void Matrix<T>::Initialize(unsigned int rows, unsigned int cols)
 {
   rows_ = rows;
   cols_ = cols;
-  matrix.resize(rows_);
+  matrix_.resize(rows_);
   for(unsigned int r = 0; r < rows_; ++r)
-    matrix[r].resize(cols_);
+    matrix_[r].resize(cols_);
 }
 
-void Initialize(unsigned int rows, unsigned int cols, T value)
+template <class T>
+void Matrix<T>::Initialize(unsigned int rows, unsigned int cols, T value)
 {
   rows_ = rows;
   cols_ = cols;
-  matrix.resize(rows_);
+  matrix_.clear(); // There may be old values and we want to flush those first.
+                   // Otherwise the new value may not be set at every position.
+  matrix_.resize(rows_);
   for(unsigned int r = 0; r < rows_; ++r)
-    matrix[r].resize(cols_, value);
+    matrix_[r].resize(cols_, value);
 }
 
 template <class T>
-T operator() (unsigned int row, unsigned int col) const
+T Matrix<T>::operator() (unsigned int row, unsigned int col) const
 {
-  return matrix[row][col];
+  return matrix_[row][col];
 }
 
 template <class T>
-T& operator() (unsigned int row, unsigned int col)
+T& Matrix<T>::operator() (unsigned int row, unsigned int col)
 {
-  return matrix[row][col];
+  return matrix_[row][col];
 }
 
 #endif
