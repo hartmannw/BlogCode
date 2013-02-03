@@ -23,20 +23,27 @@ class Matrix
   Matrix() : rows_(0), cols_(0) {}
   ~Matrix() {}
 
+  // Constructors.
   Matrix(unsigned int rows, unsigned int cols){ Initialize(rows, cols);}
   Matrix(unsigned int rows, unsigned int cols, T value){ 
       Initialize(rows, cols, value); }
-  
+ 
+  // Initialization functions. 
   void Initialize(unsigned int rows, unsigned int cols);
   void Initialize(unsigned int rows, unsigned int cols, T value);
 
+  // Accessors for the data in the matrix.
   T operator() (unsigned int row, unsigned int col) const;
   T& operator() (unsigned int row, unsigned int col);
+
+  // Accessors for the size of the matrix.
   unsigned int NumRows() const { return rows_;}
   unsigned int NumCols() const { return cols_;}
 
 };
 
+// Initializes the size of the matrix and allocates space, but does not set a
+// specific value for the data.
 template <class T>
 void Matrix<T>::Initialize(unsigned int rows, unsigned int cols)
 {
@@ -47,6 +54,7 @@ void Matrix<T>::Initialize(unsigned int rows, unsigned int cols)
     matrix_[r].resize(cols_);
 }
 
+// Initializes the matrix and allocates space. Sets all data equal to value.
 template <class T>
 void Matrix<T>::Initialize(unsigned int rows, unsigned int cols, T value)
 {
@@ -59,6 +67,8 @@ void Matrix<T>::Initialize(unsigned int rows, unsigned int cols, T value)
     matrix_[r].resize(cols_, value);
 }
 
+// Allows a member of the matrix to be accessed as m(2,4). Does not provide any
+// bounds checking.
 template <class T>
 T Matrix<T>::operator() (unsigned int row, unsigned int col) const
 {
