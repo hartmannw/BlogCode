@@ -1,12 +1,11 @@
 #!/usr/bin/python
 
-# Takes an ARPA formatted LM (such as one produced by engram) and transforms it
+# Takes an ARPA formatted LM (such as one produced by SRILM) and transforms it
 # into the FST format used by OpenFst. In order to be used in OpenFST it needs
 # to be subsequently compiled using fstcompile.
 #
 # ISSUES:
-# Currently only supports bigram LMs. Not entirely confident that backoff
-# weights are handled properly.
+# Currently only supports trigram LMs.
 
 import sys, string, re, codecs, math, argparse
 
