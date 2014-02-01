@@ -36,7 +36,6 @@ def main():
             default_node["score"] = 1
             if len(data) == 1: # Must be line giving final state
                 final_state.append(int(data[0]))
-                #fsm[int(data[0])] = default_node
             else: # Must be an arc definition.
                 start_node = int(data[0])
                 end_node = int(data[1])
@@ -55,14 +54,8 @@ def main():
                 fsm[end_node]["parent"].append(from_arc)
 
     occupancy_probability(fsm, final_state[0])
-    #print fsm
-    #for key in fsm:
-    #    fout.write(str(key) + " " + str(fsm[key]["score"]))
-    #    for arc in fsm[key]["child"]:
-    #        fout.write(" (" + str(arc["to"]) + ":" + arc["label"] + ")")
-    #    fout.write("\n")
     count_ngrams(fsm, ngram, 3)
-    #print ngram
+
     for key in ngram:
         fout.write(str(ngram[key]) + " " + key + "\n")
     fout.close()
