@@ -15,3 +15,7 @@ Code for specific blog posts:
     http://williamhartmann.wordpress.com/2013/02/03/hiding-inefficient-implementations/
   Converting a Language Model to a Finite State Transducer
     http://williamhartmann.wordpress.com/2014/02/02/converting-a-language-model-to-a-finite-state-transducer/
+  Converting a Set of Strings to Finite State Automata
+    http://williamhartmann.wordpress.com/2014/02/16/converting-a-set-of-strings-to-a-finite-state-automata/
+  Counting Fractional N-Grams in a Lattice of FST
+    http://williamhartmann.wordpress.com/2014/03/02/counting-fractional-ngrams-in-a-lattice-or-fst/
